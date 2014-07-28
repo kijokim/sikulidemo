@@ -36,9 +36,9 @@ public class SikuliResourceChangeTest {
 			screen.click(p.setFilename("1.png"));
 			screen.click(p.setFilename("2.png"));
 			Thread.sleep(1000);
-			screen.type(p.setFilename("3.png"),"1111");
+			screen.type(p.setFilename("3-1.png"),"11112");
 			screen.click(p.setFilename("4.png"));
-			screen.click(p.setFilename("5.png"));
+			screen.find(p.setFilename("5.png"));
 
 
 		} catch (Exception e) {
