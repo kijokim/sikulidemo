@@ -7,15 +7,11 @@ import org.sikuli.script.App;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
-/**
- * Created by kijo.kim on 7/15/14.
- */
+
 public class SikuliTest {
 
 	@Before
 	public void setup() {
-		// File file = new File("/Volumes/HD/work/tools/chromedriver");
-		// System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
 	}
 
 	@Test
@@ -40,4 +36,6 @@ public class SikuliTest {
 		}
 
 	}
+
+
 }
