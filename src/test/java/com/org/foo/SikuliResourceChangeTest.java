@@ -43,7 +43,7 @@ public class SikuliResourceChangeTest {
 			Thread.sleep(1000);
 			screen.type(p.setFilename(env.getProperty("key3")),"1111");
 			screen.click(p.setFilename(env.getProperty("key4")));
-			screen.click(p.setFilename(env.getProperty("key5")));
+			screen.find(p.setFilename(env.getProperty("key5")));
 
 
 		} catch (Exception e) {
