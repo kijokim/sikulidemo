@@ -8,6 +8,7 @@ import org.sikuli.script.App;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -22,6 +23,10 @@ public class SikuliResourceChangeTest {
 	@Autowired
 	Pattern p;
 	
+	@Autowired
+	private Environment env;
+
+	
 	@Before
 	public void setup() {
 	}
@@ -33,12 +38,12 @@ public class SikuliResourceChangeTest {
 			app.open();
 			Thread.sleep(1000);
 			Screen screen = new Screen();
-			screen.click(p.setFilename("1.png"));
-			screen.click(p.setFilename("2.png"));
+			screen.click(p.setFilename(env.getProperty("key1")));
+			screen.click(p.setFilename(env.getProperty("key2")));
 			Thread.sleep(1000);
-			screen.type(p.setFilename("3-1.png"),"11111");
-			screen.click(p.setFilename("4.png"));
-			screen.find(p.setFilename("5.png"));
+			screen.type(p.setFilename(env.getProperty("key3")),"1111");
+			screen.click(p.setFilename(env.getProperty("key4")));
+			screen.click(p.setFilename(env.getProperty("key5")));
 
 
 		} catch (Exception e) {

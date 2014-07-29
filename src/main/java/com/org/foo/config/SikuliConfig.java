@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource("classpath:${spring.profiles.active:default}.properties")
+@PropertySource("classpath:${spring.profiles.active:device1}.properties")
 public class SikuliConfig implements InitializingBean {
 
 	@Autowired
