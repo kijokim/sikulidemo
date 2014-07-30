@@ -15,12 +15,27 @@ public class SikuliConfig implements InitializingBean {
 	@Autowired
 	private Environment env;
 
+	private String targetDevice;
+
+	public String getTargetDevice() {
+		return targetDevice;
+	}
+
+	public void setTargetDevice(String targetDevice) {
+		this.targetDevice = targetDevice;
+	}
+
 	@Bean
 	public Pattern customPattern() {
-		return new CustomPattern("src/main/resources/"+env.getActiveProfiles()[0] +  "/");
+		return new CustomPattern("src/main/resources/" + getTargetDevice()
+				+ "/");
 	}
 
 	public void afterPropertiesSet() throws Exception {
-		System.out.println(env.getProperty("key1"));
+		if (env.getActiveProfiles().length == 0) {
+			throw new Exception("avtive Profile does not exist!!!");
+		} else {
+			setTargetDevice(env.getActiveProfiles()[0]);
+		}
 	}
 }

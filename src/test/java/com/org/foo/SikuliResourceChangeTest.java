@@ -1,7 +1,7 @@
 package com.org.foo;
 
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sikuli.script.App;
@@ -27,8 +27,9 @@ public class SikuliResourceChangeTest {
 	private Environment env;
 
 	
-	@Before
-	public void setup() {
+	@BeforeClass
+	public static void setupOnce() {
+		System.setProperty("spring.profiles.active", "device1");
 	}
 
 	@Test
@@ -54,6 +55,5 @@ public class SikuliResourceChangeTest {
 		}
 
 	}
-
 
 }
