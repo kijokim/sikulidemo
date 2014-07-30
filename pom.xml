@@ -14,6 +14,32 @@
 		<spring.framework.version>4.0.3.RELEASE</spring.framework.version>
 		<junit.version>4.11</junit.version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>mac</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<sikulilib-path></sikulilib-path>
+			</properties>
+		</profile>
+		<profile>
+			<id>windows</id>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<properties>
+				<sikulilib-path>C:\\jenkins\\sikuli\\sikuli-java.jar</sikulilib-path>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -38,8 +64,9 @@
 			<artifactId>sikuli</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>C:\\jenkins\\sikuli\\sikuli-java.jar</systemPath>
+			<systemPath>${sikulilib-path}</systemPath>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
