@@ -34,6 +34,7 @@ public class SikuliResourceChangeTest {
 
 	@Test
 	public void testPOS() {
+		//comment
 		App app =new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
 		try {
 			app.open();
