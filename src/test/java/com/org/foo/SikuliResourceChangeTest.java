@@ -29,7 +29,7 @@ public class SikuliResourceChangeTest {
 	
 	@BeforeClass
 	public static void setupOnce() {
-		System.setProperty("spring.profiles.active", "device1");
+		System.setProperty("spring.profiles.active", "device2");
 	}
 
 	@Test
