@@ -24,7 +24,7 @@
 				</os>
 			</activation>
 			<properties>
-				<sikulilib-path></sikulilib-path>
+				<sikulilib-path>/Applications/SikuliX-IDE.app/Contents/sikuli-java.jar</sikulilib-path>
 			</properties>
 		</profile>
 		<profile>

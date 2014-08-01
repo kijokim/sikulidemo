@@ -20,40 +20,40 @@ import com.org.foo.config.SikuliConfig;
 @ContextConfiguration(classes=SikuliConfig.class, loader=AnnotationConfigContextLoader.class)
 public class SikuliResourceChangeTest {
 
-	@Autowired
-	Pattern p;
-	
-	@Autowired
-	private Environment env;
+    @Autowired
+    Pattern p;
 
-	
-	@Before
-	public void setup() {
-	}
-
-	@Test
-	public void testPOS() {
-		App app =new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
-		try {
-			app.open();
-			Thread.sleep(1000);
-			Screen screen = new Screen();
-			screen.click(p.setFilename(env.getProperty("key1")));
-			screen.click(p.setFilename(env.getProperty("key2")));
-			Thread.sleep(1000);
-			screen.type(p.setFilename(env.getProperty("key3")),"1111");
-			screen.click(p.setFilename(env.getProperty("key4")));
-			screen.find(p.setFilename(env.getProperty("key5")));
+    @Autowired
+    private Environment env;
 
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			Assert.fail();
-		}finally {
-			app.close();
-		}
+    @Before
+    public void setup() {
+    }
 
-	}
+    @Test
+    public void testPOS() {
+        App app =new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
+        try {
+            app.open();
+            Thread.sleep(1000);
+            Screen screen = new Screen();
+            screen.click(p.setFilename(env.getProperty("key1")));
+            screen.click(p.setFilename(env.getProperty("key2")));
+            Thread.sleep(1000);
+            screen.type(p.setFilename(env.getProperty("key3")),"1111");
+            screen.click(p.setFilename(env.getProperty("key4")));
+            screen.find(p.setFilename(env.getProperty("key5")));
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }finally {
+            app.close();
+        }
+
+    }
 
 
 }
