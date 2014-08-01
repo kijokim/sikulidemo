@@ -8,7 +8,6 @@ public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
 
 	@Test
 	public void testPOS() {
-		// comment
 		try {
 			app.open();
 			screen.click(key1);

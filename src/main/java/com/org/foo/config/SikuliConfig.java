@@ -15,8 +15,8 @@ import org.springframework.core.env.Environment;
 import com.org.foo.sikuli.CustomScreen;
 
 @Configuration
-@PropertySource(value = { "default.properties",
-		"classpath:${spring.profiles.active}.properties" }, ignoreResourceNotFound = true)
+@PropertySource(value = { "classpath:${target.scenario.name}/${target.scenario.name}.properties",
+		"classpath:${target.scenario.name}/${spring.profiles.active}.properties" }, ignoreResourceNotFound = true)
 public class SikuliConfig implements InitializingBean {
 
 	private static final Logger LOGGER = LoggerFactory
@@ -28,6 +28,16 @@ public class SikuliConfig implements InitializingBean {
 	private ApplicationContext context;
 
 	private String targetDevice;
+	
+	private String targeScerario;
+
+	public String getTargeScerario() {
+		return targeScerario;
+	}
+
+	public void setTargeScerario(String targeScerario) {
+		this.targeScerario = targeScerario;
+	}
 
 	public String getTargetDevice() {
 		return targetDevice;
@@ -44,18 +54,24 @@ public class SikuliConfig implements InitializingBean {
 
 	@Bean
 	public Screen customScreen() {
-		return new CustomScreen("src/main/resources/" + getTargetDevice()
-				+ "/");
+		return new CustomScreen("src/main/resources/" + getTargeScerario() +"/" + getTargetDevice() + "/");
 	}
-	
+
 	public void afterPropertiesSet() throws Exception {
 		if (env.getActiveProfiles().length == 0) {
-			throw new Exception("avtive Profile does not exist!!!");
+			throw new Exception("avtive Profile does not exist!!! Please set JVM argument like -Dspring.profiles.active=[device folder name]");
 		} else {
 			setTargetDevice(env.getActiveProfiles()[0]);
 		}
 		System.out.println("target deivce [" + getTargetDevice()
 				+ "] is selected!");
+
+		setTargeScerario(System.getProperty("target.scenario.name"));
+		if (getTargeScerario() == null) {
+			throw new Exception("avtive scenario does not exist!!! Please set JVM argument like -Dtarget.scenario.name=[scenario folder name]");
+		}
+		System.out.println("test scenario ["
+				+ getTargeScerario() + "] is selected!");
 
 	}
 }

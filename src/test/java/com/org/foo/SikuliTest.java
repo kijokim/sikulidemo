@@ -21,14 +21,12 @@ public class SikuliTest {
 		App app =new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
 		try {
 			app.open();
-			Thread.sleep(1000);
 			Screen screen = new Screen();
-			screen.click(new Pattern("data\\1.png"));
-			screen.click(new Pattern("data\\2.png"));
-			Thread.sleep(1000);
-			screen.type(new Pattern("data\\3.png"), "11112222");
-			screen.click(new Pattern("data\\4.png"));
-			screen.find(new Pattern("data\\5.png"));
+			screen.click(new Pattern("src\\main\\resources\\device1\\1.png"));
+			screen.click(new Pattern("src\\main\\resources\\device1\\2.png"));
+			screen.type(new Pattern("src\\main\\resources\\device1\\3.png"), "11112222");
+			screen.click(new Pattern("src\\main\\resources\\device1\\4.png"));
+			screen.find(new Pattern("src\\main\\resources\\device1\\5.png"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
