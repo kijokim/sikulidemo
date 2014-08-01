@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class SikuliResourceChangeTest extends SikuliTestCase {
+public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
 
 	@Test
 	public void testPOS() {
