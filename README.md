@@ -4,7 +4,7 @@
 ## Running SikuliDemo locally
 ```
 	git clone https://github.com/kijokim/sikulidemo.git
-	mvn test
+	mvn test -Dspring.profiles.active=device1 -Dtarget.scenario.name=scenario1
 ```
 
 
