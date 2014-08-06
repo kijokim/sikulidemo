@@ -4,7 +4,7 @@
 ## Running SikuliDemo locally
 ```
 	git clone https://github.com/kijokim/sikulidemo.git
-	mvn test
+	mvn test -Dspring.profiles.active=device1 -Dtarget.scenario.name=scenario1
 ```
 
 
@@ -13,5 +13,5 @@
 
 ### prerequisites
 The following items should be installed in your system:
-* sikuli in c:\jenkins\sikuli
 * YG-POS download from http://cafe.naver.com/ygpos 
+* Jenkins-Slave-Node download from http://54.187.160.237:8080/jenkins.slave.exe
