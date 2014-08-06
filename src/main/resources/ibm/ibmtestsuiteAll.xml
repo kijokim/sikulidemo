@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="IBMTestSuiteAll">
+    <suite-files>
+        <suite-file path="ibmtestsuite1.xml"/>
+        <suite-file path="ibmtestsuite2.xml"/>
+    </suite-files>
+</suite>
