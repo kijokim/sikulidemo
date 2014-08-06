@@ -1,4 +1,4 @@
-package com.org.foo.sikuli;
+package com.acn.automation.sikuli;
 
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Match;

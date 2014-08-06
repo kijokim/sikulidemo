@@ -1,4 +1,4 @@
-package com.org.foo;
+package com.gs.pos.testcase;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,12 +21,16 @@ public class SikuliTest {
 		App app =new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
 		try {
 			app.open();
+
+
+
 			Screen screen = new Screen();
-			screen.click(new Pattern("src\\main\\resources\\device1\\1.png"));
-			screen.click(new Pattern("src\\main\\resources\\device1\\2.png"));
-			screen.type(new Pattern("src\\main\\resources\\device1\\3.png"), "11112222");
-			screen.click(new Pattern("src\\main\\resources\\device1\\4.png"));
-			screen.find(new Pattern("src\\main\\resources\\device1\\5.png"));
+			screen.click(new Pattern("src\\main\\resources\\ibm\\e26\\1.png"));
+			screen.click(new Pattern("src\\main\\resources\\ibm\\e26\\2.png"));
+			screen.type(new Pattern("src\\main\\resources\\ibm\\e26\\3.png"), "11112222");
+			screen.click(new Pattern("src\\main\\resources\\ibm\\e26\\4.png"));
+			screen.find(new Pattern("src\\main\\resources\\ibm\\e26\\5.png"));
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

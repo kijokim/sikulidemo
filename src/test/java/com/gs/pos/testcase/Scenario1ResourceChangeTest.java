@@ -1,4 +1,4 @@
-package com.org.foo;
+package com.gs.pos.testcase;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,4 +21,5 @@ public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
 			Assert.fail();
 		} 
 	}
+
 }

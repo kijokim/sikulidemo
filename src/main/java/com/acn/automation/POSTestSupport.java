@@ -1,4 +1,4 @@
-package com.org.foo;
+package com.acn.automation;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.org.foo.annotation.EnablePOSConfig;
+import com.acn.automation.annotation.EnablePOSConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @EnablePOSConfig
 public class POSTestSupport extends Assert {
 
 	@Autowired
-	Screen screen;
+	public Screen screen;
 
 	@Autowired
-	private Environment env;
+	public Environment env;
 
-	App app;
+	public App app;
 
 	@Before
 	public void setup() {

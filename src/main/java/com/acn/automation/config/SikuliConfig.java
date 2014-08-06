@@ -1,4 +1,4 @@
-package com.org.foo.config;
+package com.acn.automation.config;
 
 import org.sikuli.script.Screen;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
-import com.org.foo.sikuli.CustomScreen;
+import com.acn.automation.sikuli.CustomScreen;
 
 @Configuration
 @PropertySource(value = { "classpath:${target.scenario.name}/${target.scenario.name}.properties",
@@ -59,16 +59,16 @@ public class SikuliConfig implements InitializingBean {
 
 	public void afterPropertiesSet() throws Exception {
 		if (env.getActiveProfiles().length == 0) {
-			throw new Exception("avtive Profile does not exist!!! Please set JVM argument like -Dspring.profiles.active=[device folder name]");
+			throw new Exception("active Profile does not exist!!! Please set JVM argument like -Dspring.profiles.active=[device folder name]");
 		} else {
 			setTargetDevice(env.getActiveProfiles()[0]);
 		}
-		System.out.println("target deivce [" + getTargetDevice()
+		System.out.println("target device [" + getTargetDevice()
 				+ "] is selected!");
 
 		setTargeScerario(System.getProperty("target.scenario.name"));
 		if (getTargeScerario() == null) {
-			throw new Exception("avtive scenario does not exist!!! Please set JVM argument like -Dtarget.scenario.name=[scenario folder name]");
+			throw new Exception("active scenario does not exist!!! Please set JVM argument like -Dtarget.scenario.name=[scenario folder name]");
 		}
 		System.out.println("test scenario ["
 				+ getTargeScerario() + "] is selected!");
