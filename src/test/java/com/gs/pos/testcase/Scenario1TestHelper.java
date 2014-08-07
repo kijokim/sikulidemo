@@ -2,21 +2,24 @@ package com.gs.pos.testcase;
 
 import com.accenture.mobility.swv.POSTestSupport;
 import org.springframework.beans.factory.annotation.Value;
+import sun.net.www.content.image.png;
 
 public class Scenario1TestHelper extends POSTestSupport {
-	@Value("${key1}")
-	String key1;
 
-	@Value("${key2}")
-	String key2;
 
-	@Value("${key3}")
-	String key3;
+    @Value("${POS_MANAGEMENT}")
+    String POS_MANAGEMENT;
 
-	@Value("${key4}")
-	String key4;
+    @Value("${PRODUCT_INSERT}")
+    String PRODUCT_INSERT;
 
-	@Value("${key5}")
-	String key5;
-	
+    @Value("${PRODUCT_BARCODE_INSERT}")
+    String PRODUCT_BARCODE_INSERT;
+
+    @Value("${PRODUCT_SAVE}")
+    String PRODUCT_SAVE;
+
+    @Value("${INVALID_BARCODE}")
+    String INVALID_BARCODE;
+
 }

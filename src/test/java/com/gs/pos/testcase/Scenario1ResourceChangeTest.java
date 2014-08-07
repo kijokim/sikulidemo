@@ -7,22 +7,16 @@ import org.testng.annotations.Test;
 
 public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
 
-    @BeforeClass
-    public void before() {
-      System.setProperty("spring.profiles.active","e26");
-      System.setProperty("target.scenario.name","ibm");
 
-    }
-
-    @Test(groups = {"ygpos.validation1"},enabled = true)
+    @Test(groups = {"ygpos.validation1"})
     public void testPOS() {
         try {
             app.open();
-            screen.click(key1);
-            screen.click(key2);
-            screen.type(key3, "1111");
-            screen.click(key4);
-            screen.find(key5);
+            screen.click(POS_MANAGEMENT);
+            screen.click(PRODUCT_INSERT);
+            screen.type(PRODUCT_BARCODE_INSERT, "1111");
+            screen.click(PRODUCT_SAVE);
+            screen.find(INVALID_BARCODE);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,7 +24,7 @@ public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
         }
     }
 
-    @Test(groups = {"ygpos.validation1"})
+    @Test(groups = {"ygpos.validation1"},enabled = false)
     public void testPOS1() {
         try {
             System.out.println("\"SSS\" = " + "SSS");
@@ -41,20 +35,5 @@ public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
         }
     }
 
-    @Test(enabled = false)
-    public void testPOS2() {
-        try {
-            app.open();
-            screen.click(key1);
-            screen.click(key2);
-            screen.type(key3, "1111");
-            screen.click(key4);
-            screen.find(key5);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail();
-        }
-    }
 
 }
