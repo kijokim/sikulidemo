@@ -1,6 +1,6 @@
-package com.acn.automation;
+package com.accenture.mobility.swv;
 
-import com.acn.automation.annotation.EnablePOSConfig;
+import com.accenture.mobility.swv.annotation.EnableSWVConfig;
 import org.sikuli.script.App;
 import org.sikuli.script.Screen;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-@EnablePOSConfig
+@EnableSWVConfig
 public class POSTestSupport extends AbstractTestNGSpringContextTests {
 
 	@Autowired
@@ -22,7 +22,16 @@ public class POSTestSupport extends AbstractTestNGSpringContextTests {
 
 	@BeforeTest
 	public void setup() {
-		app = new App("C:\\Program Files (x86)\\YG-POS\\YG_POS.exe");
+
+        try {
+            System.err.println("###############"+env.getProperty("pos.program.path"));
+            app = new App(env.getProperty("pos.program.path"));
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+
 	}
 
 	@AfterTest

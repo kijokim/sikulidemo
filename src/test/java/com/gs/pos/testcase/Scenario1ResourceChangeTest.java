@@ -1,20 +1,20 @@
 package com.gs.pos.testcase;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
 public class Scenario1ResourceChangeTest extends Scenario1TestHelper {
 
-    @BeforeTest
+    @BeforeClass
     public void before() {
-//      System.setProperty("spring.profiles.active","e26");
-//      System.setProperty("target.scenario.name","ibm");
+      System.setProperty("spring.profiles.active","e26");
+      System.setProperty("target.scenario.name","ibm");
 
     }
 
-    @Test(groups = {"ygpos.validation1"})
+    @Test(groups = {"ygpos.validation1"},enabled = true)
     public void testPOS() {
         try {
             app.open();

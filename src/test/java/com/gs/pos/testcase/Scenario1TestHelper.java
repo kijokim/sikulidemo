@@ -1,6 +1,6 @@
 package com.gs.pos.testcase;
 
-import com.acn.automation.POSTestSupport;
+import com.accenture.mobility.swv.POSTestSupport;
 import org.springframework.beans.factory.annotation.Value;
 
 public class Scenario1TestHelper extends POSTestSupport {
