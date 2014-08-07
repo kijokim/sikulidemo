@@ -1,4 +1,4 @@
-package com.acn.automation.sikuli;
+package com.accenture.mobility.swv.sikuli;
 
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Match;
