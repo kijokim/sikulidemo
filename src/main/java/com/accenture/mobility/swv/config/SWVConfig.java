@@ -74,23 +74,17 @@ public class SWVConfig implements InitializingBean {
             setTargetDevice(env.getActiveProfiles()[0]);
         }
 
-
-        System.out.println("target device [" + getTargetDevice()
-                + "] is selected!");
-
         setTargeScerario(System.getProperty("target.scenario.name"));
         if (getTargeScerario() == null) {
             throw new Exception("active scenario does not exist!!! Please set JVM argument like -Dtarget.scenario.name=[scenario folder name]");
         }
 
 
-        System.out.println("#########SWV INFO##############");
-        System.out.println("\r\n");
+        System.out.println("######################## SWV INFO #############################");
         System.out.println("  + app Path:       [" + getAppPath()+"]");
         System.out.println("  + target Scenario:[" + getTargeScerario()+"]");
         System.out.println("  + target device:  [" + getTargetDevice()+"]");
-        System.out.println("\r\n");
-        System.out.println("###############################");
+        System.out.println("###############################################################");
 
     }
 }
