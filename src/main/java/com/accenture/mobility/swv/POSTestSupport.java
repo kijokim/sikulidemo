@@ -12,31 +12,25 @@ import org.testng.annotations.BeforeTest;
 @EnableSWVConfig
 public class POSTestSupport extends AbstractTestNGSpringContextTests {
 
-	@Autowired
-	public Screen screen;
+    @Autowired
+    public Screen screen;
 
-	@Autowired
-	public Environment env;
+    @Autowired
+    public Environment env;
 
-	public App app;
+    public App app;
 
-	@BeforeTest
-	public void setup() {
+    @BeforeTest
+    public void setup() {
 
-        try {
-            System.err.println("###############"+env.getProperty("pos.program.path"));
-            app = new App(env.getProperty("pos.program.path"));
+        app = new App(env.getProperty("pos.program.path"));
 
-        }catch (Exception e){
-            e.printStackTrace();
 
-        }
+    }
 
-	}
-
-	@AfterTest
-	public void after() {
-		app.close();
-	}
+    @AfterTest
+    public void after() {
+        app.close();
+    }
 
 }
