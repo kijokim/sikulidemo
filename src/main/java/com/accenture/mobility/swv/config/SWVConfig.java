@@ -30,6 +30,16 @@ public class SWVConfig implements InitializingBean {
 
     private String targeScerario;
 
+    private String appPath;
+
+    public String getAppPath() {
+        return appPath;
+    }
+
+    public void setAppPath(String appPath) {
+        this.appPath = appPath;
+    }
+
     public String getTargeScerario() {
         return targeScerario;
     }
@@ -52,8 +62,10 @@ public class SWVConfig implements InitializingBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        if (env.getProperty("pos.program.path") == null) {
+        if (env.getProperty("app.program.path") == null) {
             throw new Exception("pos program path is not defined!!");
+        }else{
+            setAppPath(env.getProperty("app.program.path"));
         }
 
         if (env.getActiveProfiles().length == 0) {
@@ -61,6 +73,8 @@ public class SWVConfig implements InitializingBean {
         } else {
             setTargetDevice(env.getActiveProfiles()[0]);
         }
+
+
         System.out.println("target device [" + getTargetDevice()
                 + "] is selected!");
 
@@ -68,8 +82,15 @@ public class SWVConfig implements InitializingBean {
         if (getTargeScerario() == null) {
             throw new Exception("active scenario does not exist!!! Please set JVM argument like -Dtarget.scenario.name=[scenario folder name]");
         }
-        System.out.println("test scenario ["
-                + getTargeScerario() + "] is selected!");
+
+
+        System.out.println("#########SWV INFO##############");
+        System.out.println("\r\n");
+        System.out.println("  + app Path:       [" + getAppPath()+"]");
+        System.out.println("  + target Scenario:[" + getTargeScerario()+"]");
+        System.out.println("  + target device:  [" + getTargetDevice()+"]");
+        System.out.println("\r\n");
+        System.out.println("###############################");
 
     }
 }

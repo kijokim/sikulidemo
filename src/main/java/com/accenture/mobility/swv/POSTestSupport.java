@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 
 @EnableSWVConfig
 public class POSTestSupport extends AbstractTestNGSpringContextTests {
@@ -18,15 +17,9 @@ public class POSTestSupport extends AbstractTestNGSpringContextTests {
     @Autowired
     public Environment env;
 
+    @Autowired
     public App app;
 
-    @BeforeTest
-    public void setup() {
-
-        app = new App(env.getProperty("pos.program.path"));
-
-
-    }
 
     @AfterTest
     public void after() {

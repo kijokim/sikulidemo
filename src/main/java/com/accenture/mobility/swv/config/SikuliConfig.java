@@ -1,6 +1,7 @@
 package com.accenture.mobility.swv.config;
 
 import com.accenture.mobility.swv.sikuli.CustomScreen;
+import org.sikuli.script.App;
 import org.sikuli.script.Screen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,14 @@ public class SikuliConfig {
 
     @Autowired
     private ApplicationContext context;
+
+
+    @Bean
+    @DependsOn(value = {"propertySourcesPlaceholderConfigurer"})
+    public App customApp() {
+        SWVConfig swvConfig = context.getBean(SWVConfig.class);
+        return new App(swvConfig.getAppPath());
+    }
 
     @Bean
     @DependsOn(value = {"propertySourcesPlaceholderConfigurer"})
